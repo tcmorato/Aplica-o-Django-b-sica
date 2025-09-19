@@ -3,6 +3,7 @@ from django.urls import path
 
 
 urlpatterns = [
-    path('', views.listaPost.as_view(), name = 'inicio'),
-    path('postar/', views.novoPost.as_view(), name = 'postar'),
+    path('', views.listarPost.as_view(), name = 'inicio'),
+    path('postar/', views.criarPost.as_view(), name = 'postar'),
+    path('deletar/<int:pk>/', views.deletarPost.as_view(), name = 'deletar')
 ]

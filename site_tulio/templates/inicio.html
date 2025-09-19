@@ -11,6 +11,7 @@
                 <img src="{{ post.imagem.url }}" class="img-fluid">
             {% endif %}
             <p>{{ post.descricao }}</p>
+            <a href="{% url 'deletar' post.pk %}" class="btn btn-danger">Excluir</a>
         </div>
     </div>
 {% endfor %}

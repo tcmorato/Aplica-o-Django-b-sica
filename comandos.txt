@@ -9,3 +9,11 @@ python manage.py createsuperuser
 python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
+
+
+git init
+git config user.email tcmorato28@gmail.com
+git config user.name tuliomorato
+
+git add .
+git commit -m 'nome'
