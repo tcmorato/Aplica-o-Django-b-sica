@@ -2,5 +2,9 @@
 {% block titulo %}Postar{% endblock titulo %}
 
 {% block conteudo %}
-oi
+<form action="{% url "postar" %}" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+{{ formulario }}
+<button type="submit" class="btn btn-primary">Postar</button>
+</form>
 {% endblock conteudo %}

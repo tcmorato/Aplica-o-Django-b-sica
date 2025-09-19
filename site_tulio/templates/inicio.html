@@ -2,5 +2,16 @@
 {% block titulo %}Home{% endblock titulo %}
 
 {% block conteudo %}
-<h1> Hello world! </h1>
+{% for post in posts %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ post.titulo }}</h5>
+            <h6>Por: {{ post.autor }}</h6>
+            {% if post.imagem %}
+                <img src="{{ post.imagem.url }}" class="img-fluid">
+            {% endif %}
+            <p>{{ post.descricao }}</p>
+        </div>
+    </div>
+{% endfor %}
 {% endblock conteudo %}
