@@ -2,21 +2,28 @@
 {% block titulo %}Home{% endblock titulo %}
 
 {% block conteudo %}
-
 <div class="posts">
-{% for post in posts %}
-    <div class="card mb-3">
-        <div class="card-body">
-            <h5 class="card-title">{{ post.titulo }}</h5>
-            <h6>Por: {{ post.autor }}</h6>
-            {% if post.imagem %}
-                <img src="{{ post.imagem.url }}" class="img-fluid">
-            {% endif %}
-            <p>{{ post.descricao }}</p>
-            <a href="{% url 'deletar' post.pk %}" class="btn btn-danger">Excluir</a>
+    {% for post in posts %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.titulo }}</h5>
+                <p class="post-autor">Por: {{ post.autor }}</p>
+                {% if post.imagem %}
+                    <div class="img-container">
+                        <img src="{{ post.imagem.url }}" class="img-fluid" alt="{{ post.titulo }}">
+                    </div>
+                {% endif %}
+                <p class="card-text">{{ post.descricao }}</p>
+                <div class="text-end">
+                    <a href="{% url 'deletar' post.pk %}" class="btn btn-danger btn-sm">Excluir</a>
+                </div>
+            </div>
         </div>
-    </div>
-{% endfor %}
+    {% empty %}
+        <div class="text-center mt-4">
+            <p>Nenhuma postagem encontrada.</p>
+            <a href="{% url 'postar' %}" class="btn btn-primary">Criar Primeira Postagem</a>
+        </div>
+    {% endfor %}
 </div>
-
 {% endblock conteudo %}

@@ -36,6 +36,4 @@ class deletarPost(DeleteView):
     template_name = "confirmar_delete.html"
     success_url = reverse_lazy('inicio')
 
-
-
             
